@@ -3,19 +3,13 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-
 def scrape():
-
     from selenium import webdriver
     from selenium.webdriver.common.by import By
 
+    driver = webdriver.Chrome()  # webdriver to access web. Chrome Driver in scripts
 
-
-    driver = webdriver.Chrome() # webdriver to access web. Chrome Driver in scripts
-
-
-
-    driver.get("https://www.spglobal.com/esg/scores/results?cid=4004205") # url to scrape
+    driver.get("https://www.spglobal.com/esg/scores/results?cid=4004205")  # url to scrape
     driver.maximize_window()
     time.sleep(1)
 
@@ -29,28 +23,16 @@ def scrape():
 
     element2022 = driver.find_element(By.CLASS_NAME, "scoreModule__score")
 
-
-
     driver.execute_script("arguments[0].scrollIntoView();", element2022)
 
     element2021 = driver.find_element(By.CLASS_NAME, "scoreModule__subtitle")
 
-
-
-
-    grabEsgScore(element2022, element2021)
-
-def grabEsgScore(year2022, change): # scraps the esg score for 2021 and 2022
-
-    data2022 = year2022.text
-    minus = change.text.split()[2]
-
-
+    data2022 = element2022.text
+    minus = element2021.text.split()[2]
 
     data2021 = int(data2022) + abs(int(minus))
-    print("2021", data2021 )
-    print("2022", data2022 )
 
+    return data2021, int(data2022)
 
 
 
