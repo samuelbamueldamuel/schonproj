@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .topbar{
+            background-color: white;
+            position: fixed;
+            top: 50px;
+            width: 100%;
+            height: 10%S;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+        }
+
+        .logo{
+            position: fixed;
+            left: 50px;
+        }
+
+        .navItem{
+            width: 100%;
+            display: flex;
+            position: relative;
+            box-sizing: border-box;
+            text-align: left;
+            align-items: center;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            justify-content: flex-start;
+            text-decoration: none;
+            color: #5166A7
+        }
+
+        .MuiList-root {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            list-style: none;
+        }
+
+        .jss7 {
+            display: flex;
+            padding: 0;
+            text-transform: uppercase;
+        }
+
+        .MuiList-padding {
+            padding-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .MuiGrid-grid-xs-9 {
+            flex-grow: 0;
+
+            max-width: 75%;
+
+            flex-basis: 75%;
+
+        }
+            .MuiGrid-item {
+            margin: 0;
+
+            box-sizing: border-box;
+
+        }
+
+        .jss14 {
+            display: flex;
+
+            flex-grow: 1;
+
+            flex-direction: row;
+
+            justify-content: flex-end;
+
+        }
+
+
+    </style>
+</head>
+<body>
+    {% load static %}
+    <div class="topbar">
+        
+
+        <div class="logo">
+            <img src="{% static 'images/sconeLogo.jpg' %}" width="100" height="25">
+
+        </div>
+
+        <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-9">
+            <nav class="jss14">
+                <ul class="MuiList-root jss7 MuiList-padding">
+                    <a class="MuiListItem-root jss13 jss9  MuiListItem-gutters" href="{% url 'fakeurl'}">Company</a>
+                    <a class="MuiListItem-root jss13 jss9  MuiListItem-gutters" href="{% url 'fakeurl'}">Investment Approach</a>
+                    <a class="MuiListItem-root jss13 jss9  MuiListItem-gutters" href="{% url 'fakeurl'}">Culture</a>
+                    <a class="MuiListItem-root jss13 jss9  MuiListItem-gutters" href="{% url 'fakeurl'}">Technology</a>
+                    <a class="MuiListItem-root jss13 jss9  MuiListItem-gutters" href="{% url 'fakeurl'}">Career</a>
+                    <a class="MuiListItem-root jss13 jss9  MuiListItem-gutters" href="{% url 'fakeurl'}">Contact</a>
+                    <a class="MuiListItem-root jss13 jss9  MuiListItem-gutters" href="{% url 'fakeurl'}">Investor Portal</a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>
