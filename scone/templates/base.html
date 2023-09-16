@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
+    
     <style>
         .topbar{
             background-color: white;
@@ -34,24 +39,30 @@
         }
 
         .MuiList-root {
-            margin: 0;
-            padding: 0;
+            margin: 0 10px;
+            padding: 0 10px;
             position: relative;
             list-style: none;
         }
 
         .jss7 {
+            /* margin: 0 10px;
+            padding: 0 10px; */
             display: flex;
             padding: 0;
             text-transform: uppercase;
         }
 
         .MuiList-padding {
+            margin: 0 10px;
+            padding: 0 10px;
             padding-top: 8px;
             padding-bottom: 8px;
         }
 
         .MuiGrid-grid-xs-9 {
+            margin: 0 10px;
+            padding: 0 10px;
             flex-grow: 0;
 
             max-width: 75%;
@@ -60,13 +71,16 @@
 
         }
             .MuiGrid-item {
-            margin: 0;
+            margin: 0 10px;
+            padding: 0 10px;
 
             box-sizing: border-box;
 
         }
 
         .jss14 {
+            margin: 0 10px;
+            padding: 0 10px;
             display: flex;
 
             flex-grow: 1;
@@ -76,6 +90,53 @@
             justify-content: flex-end;
 
         }
+
+        .MuiListItem-root {
+            width: 100%;
+
+            display: flex;
+
+            position: relative;
+
+            box-sizing: border-box;
+
+            text-align: left;
+
+            align-items: center;
+
+            padding-top: 8px;
+
+            padding-bottom: 8px;
+
+            justify-content: flex-start;
+
+            text-decoration: none;
+
+            left: 400px;
+        }
+
+        .MuiListItem-gutters {
+            padding-left: 16px;
+
+            padding-right: 16px;
+
+            }
+
+            .companySearch {
+                position: fixed;
+
+                top: 137px;
+
+                width: 53%;
+
+                left: 396px;
+
+                }
+            #myChart{
+                width: 400px;
+                height: 400px;
+
+            }
 
 
     </style>
@@ -99,10 +160,60 @@
                     <a class="MuiListItem-root jss13 jss9  MuiListItem-gutters" href="{% url 'fakeurl'}">Technology</a>
                     <a class="MuiListItem-root jss13 jss9  MuiListItem-gutters" href="{% url 'fakeurl'}">Career</a>
                     <a class="MuiListItem-root jss13 jss9  MuiListItem-gutters" href="{% url 'fakeurl'}">Contact</a>
-                    <a class="MuiListItem-root jss13 jss9  MuiListItem-gutters" href="{% url 'fakeurl'}">Investor Portal</a>
+                    <a class="MuiListItem-root jss13 jss9  MuiListItem-gutters" href="{% url 'fakeurl'}" style="color: purple">Investor Portal</a>
                 </ul>
             </nav>
         </div>
+
+
+        <div>
+            <form method="post" action=""
+            <input type="text" class="companySearch" name="companySearch" placeholder="Search Company Here">
+        </div>
+
+        <div>
+            <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+        </div>
+        <script>
+            const myChart = new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+            datasets: [
+                {
+                    label: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                    data: [
+                        { x: 1, y: 4 },
+                        { x: 2, y: 3 },
+                        { x: 4, y: 2},
+
+                    ],
+                    // borderColor: 'blue', 
+                    // borderWidth: 2,      
+                    // fill: false,         
+                },
+            ],
+        },
+        options: {
+            scales: {
+                x: {
+                    title: {
+                    display: true,
+                    text: 'Month'
+                    }
+                },
+
+                y: {
+                    min: 0,
+                    max: 10,
+                    ticks: {
+                        stepSize: 2,
+                    }
+                }
+            }
+        }
+        });
+        </script>
     </div>
 </body>
 </html>
