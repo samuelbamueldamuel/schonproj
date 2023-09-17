@@ -167,8 +167,10 @@
 
 
         <div>
-            <form method="post" action=""
-            <input type="text" class="companySearch" name="companySearch" placeholder="Search Company Here">
+            <form method="post" action="{% url 'work' %}">
+                {% csrf_token %}
+                <input type="text" class="companySearch" name="companySearch" placeholder="Search Company Here">
+            </form>
         </div>
 
         <div>
