@@ -28,7 +28,7 @@ def scrape(name):
     element2021 = driver.find_element(By.CLASS_NAME, "scoreModule__subtitle")
 
     data2022 = element2022.text
-    minus = element2021.text.split()[1]
+    minus = element2021.text.split()[0]
 
     data2021 = int(data2022) + abs(int(minus))
 
