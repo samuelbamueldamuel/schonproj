@@ -52,7 +52,7 @@ def scrape(name):
 
 
 
-    return data2021, int(data2022), environmental, social,ticket
+    return( data2021, int(data2022), environmental, social,ticket)
 
 
 

@@ -46,5 +46,5 @@ def work(request):
 
 
 
-    return render(request, 'base.html', context)
+    return render(request, 'graph.html', context)
 # Create your views here.
