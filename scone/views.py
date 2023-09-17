@@ -2,7 +2,7 @@ from django.shortcuts import render
 from scone.scripts.scraper import scrape
 from django.shortcuts import render
 from django.http import HttpResponse
-from scone.models import Company
+from scone.models import Companyy
 from scone.scripts.randomMetrics import alg
 
 def fakeurl(request):
@@ -14,14 +14,18 @@ def fakeurl(request):
 def work(request):
     if request.method == 'POST':
     # Process the form data
-        name = request.POST.get('companySearch')
-        two, three, env, soc, ticket = scrape(name)
+        namee = request.POST.get('companySearch')
+        two, three, env, soc, ticket = scrape(namee)
 
         FS, EV, NH, TR = alg(env, soc, three)
 
 
-        company = Company(name=name, symbol=ticket, FS=FS, EV=EV, TR=TR )
+        company = Companyy(name=namee, symbol=ticket, FS=FS, EV=EV, CT=TR )
         company.save()
+
+        obj = Companyy.objects.first()
+
+        print(obj.FS)
 
 
         

@@ -12,6 +12,8 @@ def appendLast(dig):
 
 
 def EcoVitality(enviromental):
+    enviromental = int(enviromental)
+
     if enviromental >= 60:
         weights = [0, 0, 0, 0, 0, 0, 2, 2, 4, 2]
     elif enviromental >= 50 & enviromental <= 59:
@@ -33,10 +35,12 @@ def EcoVitality(enviromental):
     return full
 
 def NatureHarmony(enviromental):
+    enviromental = int(enviromental)
     full = EcoVitality(enviromental)/2
     return full
 
 def TurnOverRate(social):
+    social = int(social)
     if social >= 60:
         weights = [0, 0, 0, 0, 0, 0, 2, 2, 4, 2]
     elif social >= 50 & social <= 59:
@@ -50,7 +54,7 @@ def TurnOverRate(social):
     else:
         weights = [3, 3, 2, 2, 1, 0, 0, 0, 0, 0, 0]
 
-    nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
     num = random.choices(nums, weights, k=1)
 
@@ -67,13 +71,13 @@ def alg(env, soc, ESG):
 
     sum = sum + n
 
-    sum = sum + (t * 1.5)
+    sum = sum + (float(t[0]) * 1.5)
 
-    sum = sum + (ESG * .75)
+    sum = sum + (float(ESG) * .75)
 
-    FeldScore = sum * 10
+    FeldScore = float(sum) * 10
 
-    return FeldScore, e, n, t
+    return int(FeldScore), int(e), int(n), int(t[0])
 
 
 
